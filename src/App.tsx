@@ -1,5 +1,7 @@
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux'
+import { store } from './app/store'
 import Header from './pages/header.tsx';
 import Footer from './pages/footer.tsx';
 import Banner from './pages/banner.tsx';
@@ -15,24 +17,26 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Header />
-      <main className="container">
-        <div className="row">
-          <div className="col">
-            <Banner />
-            <Routes>
-              <Route path="/" element={<Home />}/>
-              <Route path="/catalog" element={<Catalog />}/>
-              <Route path="/about" element={<About />}/>
-              <Route path="/contacts" element={<Contacts />}/>
-              <Route path="/product" element={<Product />}/>
-              <Route path="/cart" element={<Cart />}/>
-              <Route path="/*" element={<NotFound />}/>
-            </Routes>
+      <Provider store={store}>
+        <Header />
+        <main className="container">
+          <div className="row">
+            <div className="col">
+              <Banner />
+              <Routes>
+                <Route path="/" element={<Home />}/>
+                <Route path="/catalog" element={<Catalog page={'catalog'} />}/>
+                <Route path="/about" element={<About />}/>
+                <Route path="/contacts" element={<Contacts />}/>
+                <Route path="/product/:id" element={<Product />}/>
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/*" element={<NotFound />}/>
+              </Routes>
+            </div>
           </div>
-        </div>
-      </main>
-      <Footer />
+        </main>
+        <Footer />
+      </Provider>
     </BrowserRouter>
   )
 }

@@ -25,3 +25,6 @@ dist-ssr
 
 /src/html/
 /src/assets/
+/src/img/products/
+backup
+/.env

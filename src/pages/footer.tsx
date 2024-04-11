@@ -1,11 +1,13 @@
-import { NavLink } from 'react-router-dom';
+import { MenuItem } from "../app/index";
+import Menu from '../components/menu.tsx';
+
+const menuItems: MenuItem[] = [
+  {id: 3, caption: "О магазине", alt: "", url: "/about"},
+  {id: 2, caption: "Каталог", alt: "", url: "/catalog"},
+  {id: 4, caption: "Контакты", alt: "", url: "/contacts"},
+];
 
 export default function Footer() {
-  const menuItems = [
-    {id: 3, caption: 'О магазине', url: "/about"},
-    {id: 2, caption: 'Каталог', url: "/catalog"},
-    {id: 4, caption: 'Контакты', url: "/contacts"},
-  ];
 
   return (
     <footer className="container bg-light footer">
@@ -13,17 +15,7 @@ export default function Footer() {
         <div className="col">
           <section>
             <h5>Информация</h5>
-            <ul className="nav flex-column">
-              {menuItems.map((item) =>
-                <NavLink key={item.id}
-                         to={item.url}
-                         className = {"nav-link"}>
-                  <li className="nav-item">
-                    {item.caption}
-                  </li>
-                </NavLink>
-              )}
-            </ul>
+            <Menu items={menuItems} classes={"nav flex-column"}/>
           </section>
         </div>
         <div className="col">

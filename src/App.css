@@ -23,8 +23,6 @@ section {
 }
 
 
-
-
 /* Common Styles */
 .invisible {
     opacity: 0;
@@ -184,6 +182,7 @@ section {
 .catalog-item-size {
     display: inline-block;
     padding: 0 10px;
+    cursor: pointer;
 }
 
 .catalog-item-size.selected {
@@ -310,4 +309,8 @@ h2, .h2 {
 .btn-outline-primary:hover {
     background-color: #727e86;
     border-color: #727e86;
+}
+
+.bth-unavailable {
+    pointer-events: none;
 }
